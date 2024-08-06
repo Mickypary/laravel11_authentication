@@ -45,6 +45,5 @@ class AdminController extends Controller
     {
         Auth::guard('admin')->logout();
         return redirect()->route('admin_dashboard');
-        // return Redirect::to('dashboard');
     }
 }
