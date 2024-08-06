@@ -18,7 +18,6 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'admin' => Admin::class,
             'user' => User::class,
-            'prevent_back' => PreventBackHistory::class
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

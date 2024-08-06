@@ -21,7 +21,6 @@ class Admin
             return $next($request);
         }
 
-        // dd('pary');
         return redirect()->route('admin_login');
 
         // if (!$request->expectsJson()) {
