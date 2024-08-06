@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [WebsiteController::class, 'index'])->name('home');
-Route::get('dashboard-user', [WebsiteController::class, 'dashboard_user'])->name('dashboard-user')->middleware('auth', 'user');
+Route::get('dashboard', [WebsiteController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 Route::get('login', [WebsiteController::class, 'login'])->name('login');
 Route::post('login__', [WebsiteController::class, 'login__'])->name('login__');
 Route::get('registration', [WebsiteController::class, 'registration'])->name('registration');

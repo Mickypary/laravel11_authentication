@@ -29,19 +29,9 @@ class WebsiteController extends Controller
         return view('home');
     }
 
-    public function dashboard_admin()
+    public function dashboard()
     {
-        return view('dashboard_admin');
-    }
-
-    public function dashboard_user()
-    {
-        return view('dashboard_user');
-    }
-
-    public function settings()
-    {
-        return view('settings');
+        return view('dashboard');
     }
 
     public function login()
@@ -58,11 +48,7 @@ class WebsiteController extends Controller
         ];
 
         if (Auth::attempt($credentials)) {
-            if (Auth::guard('web')->user()->role == 1) {
-                return redirect()->route('dashboard-admin');
-            } else {
-                return redirect()->route('dashboard-user');
-            }
+            return redirect()->route('dashboard');
         } else {
             return redirect()->route('login');
         }
@@ -82,7 +68,6 @@ class WebsiteController extends Controller
         $user->password = Hash::make($request->password);
         $user->status = 'Pending';
         $user->token = $token;
-        $user->role = 2;
         $user->save();
 
         $verification_link = url('registration/verify/' . $token . '/' . $request->email);
